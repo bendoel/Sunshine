@@ -3,7 +3,6 @@ package com.example.android.sunshine.app;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -89,7 +88,7 @@ public class ForecastFragment extends Fragment {
                 R.id.list_item_tv_forecast,
                 // forecast data
                 listForecast);
-        FragmentActivity a = getActivity();
+
         ListView listviewForecast = (ListView) rootView.findViewById(R.id.listview_forecast);
         listviewForecast.setAdapter(adapterForecast);
 
@@ -136,7 +135,7 @@ public class ForecastFragment extends Fragment {
                 StringBuffer buffer = new StringBuffer();
                 if (inputStream == null) {
                     // Nothing to do.
-                    forecastJsonStr = null;
+//                    forecastJsonStr = null;
                     return null;
                 }
                 reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -151,7 +150,7 @@ public class ForecastFragment extends Fragment {
 
                 if (buffer.length() == 0) {
                     // Stream was empty.  No point in parsing.
-                    forecastJsonStr = null;
+//                    forecastJsonStr = null;
                     return null;
                 }
                 forecastJsonStr = buffer.toString();
@@ -159,7 +158,7 @@ public class ForecastFragment extends Fragment {
                 Log.e("PlaceholderFragment", "Error ", e);
                 // If the code didn't successfully get the weather data, there's no point in attempting
                 // to parse it.
-                forecastJsonStr = null;
+//                forecastJsonStr = null;
                 return null;
             } finally{
                 if (urlConnection != null) {
